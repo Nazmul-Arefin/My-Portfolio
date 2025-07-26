@@ -17,11 +17,12 @@ def load_lottieurl(url):
 lottie_coder = load_lottieurl("https://lottie.host/c42e7bb5-cd2a-4ccb-8142-83c1e0196cb4/ygGJHLVAl0.json")
 lottie_contact = load_lottieurl("https://lottie.host/ad701a82-571f-45fd-8a50-572ad2ed2a41/FbERxWJDOM.json")
 
-image1 = Image.open("image/project1.png")
-image2 = Image.open("image/project2.png")
-image3 = Image.open("image/project3.png")
-image4 = Image.open("image/project4.png")
-image5 = Image.open("image/project5.png")
+image1 = Image.open("image\project1.png")
+image2 = Image.open("image\project2.png")
+image3 = Image.open("image\project3.png")
+image4 = Image.open("image\project4.png")
+image5 = Image.open("image\project5.png")
+#image6 = Image.open("iamge\project6.jpg")
 
 # Intro page
 st.write("##")
@@ -40,8 +41,8 @@ st.write("---")
 with st.container():
     selected = option_menu(
         menu_title = None,
-        options = ["About", "Skills", "Projects", "Contact"],
-        icons = ['person', 'gear', 'code-slash', 'chat-left-text-fill'],
+        options = ["About", "Skills", "Projects", "Publications", "Contact"],
+        icons = ['person', 'gear', 'code-slash', 'pencil-square', 'chat-left-text-fill'],
         orientation='horizontal'
     )
 
@@ -57,7 +58,7 @@ if selected == 'About':
             st.markdown("""
             - I am studying Computer Sciece and Technology at Harbin Institute of Technology, Shenzhen, China. 
             - HITSZ is a premier research institution in the Greater Bay Area, HITsz provides cutting-edge labs and industry partnerships that fuel my work in intelligent systems.
-            - 🔬 Research Focus
+            - 🔬 Research Focus:
                 - Computer Vision: Developing an OCR to Speech system to aid visually impaired users and support educational accessibility.
                 - NLP: Convert static images to enable real-time text-to-speech conversion.
             """)
@@ -69,36 +70,79 @@ if selected == 'About':
 
     with st.container():
         col3, col4 = st.columns(2)
-        with col3:
-            st.subheader("""
-            🏫Education
-            - Harbin Institute of Technolgy, Shenzhen, China
-                - Masters of Computer Science and Technolgy
-                - Research Field: Computer Vision, Natural Language Processing
-            - Southwest University of Science and Technology, Sichuan, China
-                - Bachelor of Computer Science and Technology
-            """)
-        with col4:
-            st.subheader("""
-            🧩Experience
-            - Research Assistant
-                - Researched computer vision applications for assistive technology, developing Python-based solutions with PaddleOCR and Pyttsx3 to enhance accessibility tools for visually impaired users.
     
-            """)
+        with col3:
+            with st.expander("🎓 Education", expanded=True):
+                st.markdown("""
+                **🏫 Harbin Institute of Technology, Shenzhen**  
+                *2024 - Present*  
+                🔹 **M.Sc Computer Science and Technology**  
+                - Research: Computer Vision & NLP  
+                - GPA: 3.4/4.0  
+                - Advisor: Prof. Wen Jie  
+                
+                **📚 Southwest University of Science and Technology**  
+                *2019 - 2023*  
+                🔹 **B.Sc Computer Science and Technology**  
+                - Thesis: Tansformer Based Graph Convolutional Networks for Skeleton-Based Action Recognition. 
+                - Honors: Sichuan Government Scholarship  
+                """)
+
+        with col4:
+            with st.expander("💼 Professional Experience", expanded=True):
+                st.markdown("""
+                **🔍 Research Assistant | Bio Computing Research Lab | HITSZ**  
+                *2024 - Present*  
+                - Developed assistive CV tools using:  
+                🐍 Python | 🔍 PaddleOCR | 🗣️ Pyttsx3  
+                - Achievements:  
+                ✅ Improved text recognition accuracy by 32%  
+                ✅ Reduced inference latency to <200ms    
+                """)
+                
+                # Project chips
+                st.markdown("**✨ Key Projects**")
+                cols = st.columns(3)
+                with cols[0]:
+                    st.markdown("![CV](https://img.shields.io/badge/Computer-Vision-blue)")
+                with cols[1]:
+                    st.markdown("![NLP](https://img.shields.io/badge/NLP-Green)")
+                with cols[2]:
+                    st.markdown("![Accessibility](https://img.shields.io/badge/Accessibility-Important)")
+                
+                # Dynamic content
+                if st.checkbox("Show publication details"):
+                    st.markdown("""
+                    **📜 Publications:**  
+                    - *[Paper Title]*, IEEE CVPR 2024  
+                    - *[Paper Title]*, ACM MM 2023  
+                    """)
 
     st.write("---")       
-    st.write("👉Seeking an internship opportunity to apply and expand my knowledge in Artificial Intelligence, while " \
-            "contributing to the development of cutting-edge AI technologies in a global innivation-driven environments.") 
+    with st.chat_message("user"):
+        st.write("🤖 **AI Internship Candidate Alert**")
+        st.write("""
+        I'm actively seeking roles where I can:
+        - Build **transformative CV/NLP systems** 🧠
+        - Optimize **real-world AI deployments** ⚡
+        - Contribute to **global AI innovation** 🌍
+        """)
+        if st.toggle("Show contact preference"):
+            st.info("""
+            **Availability**: Summer 2025  
+            **Location**: Shenzhen/Remote  
+            **Contact**: arefin.swust@gmail.com
+            """)
 
 # for the skill part
 
 if selected == "Skills":
     with st.container():
-        st.header("🛠️ Technical Skills")
+        st.header("🛠️ Technical Skills", divider="rainbow")
         col5, col6 = st.columns(2)
     
     with col5:
-        st.subheader("Programming")
+        st.subheader("</> Programming")
         st.markdown("""
         - **Python** (Advanced)
           - TensorFlow, PyTorch, OpenCV
@@ -108,7 +152,7 @@ if selected == "Skills":
           - Algorithm optimization
         """)
         
-        st.subheader("Tools")
+        st.subheader("🧰 Tools")
         st.markdown("""
         - NVIDIA CUDA, Jupyter Notebooks, Google Colab 
         - Git, Github 
@@ -116,7 +160,7 @@ if selected == "Skills":
         """)
 
     with col6:
-        st.subheader("AI/ML Specialization")
+        st.subheader("⚡AI/ML Specialization")
         st.markdown("""
         - **Computer Vision**
           - Library: OpenCV, PaddleOCR
@@ -130,7 +174,7 @@ if selected == "Skills":
           - Flask
         """)
         
-        st.subheader("Languages")
+        st.subheader("🗣️Languages")
         st.markdown("""
         - English (Full Professional Proficiency)
         - Chinese (HSK-3)
@@ -156,8 +200,7 @@ if selected == "Skills":
 # for the Project Part  
 if selected == "Projects":
     with st.container():
-        st.header("🌟 My Projects")
-        st.write("---")
+        st.header("🌟 My Projects", divider="rainbow")
         col7, col8 = st.columns((1,2))
         with col7:
             st.image(image1, width=250)      
@@ -226,49 +269,83 @@ if selected == "Projects":
             st.markdown("[Visit Github Repo](https://github.com/Nazmul-Arefin/IMDB-Sentiment-Classification)")
         st.write("---")
 
-if selected == "Contact":
-    st.header("📬 Get in Touch!")
+if selected == "Publications":
+    with st.container():
+        st.header("📚 Publications", divider="rainbow")
+        col5, col6 = st.columns(2)
     
-    
-    left_col, right_col = st.columns((2, 1))
-    with left_col:
-        with st.form("contact_form", clear_on_submit=True):
-            name = st.text_input("Name*", placeholder="Your name")
-            email = st.text_input("Email*", placeholder="your@email.com")
-            message = st.text_area("Message*", placeholder="Your message...", height=150)
-        
-            # FormSubmit.co integration
+        with col5:
+            st.subheader("📊 Conference Proceedings")
             st.markdown("""
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://yourportfolio.streamlit.app/Thank_You">
+            - **ML-MT: A Study of e-Health Application Framework by Machine Learning Techniques**  
+              *Publisher:  2022 IEEE 4th International Conference on Cybernetics, Cognition and Machine Learning Applications (ICCCMLA)*
+              - This research paper aims to increase efficiency by providing an easy-to-use platform that not only works as a bridge between the doctors and the patients but also expedites the diagnosis process with the assistance of machine learning.  
+              - The proposed framework is composed of mainly two core components which are the patient management system and the doctor management system.
+              - The patient management system allows patients to request an appointment, collects and monitors patient data, and predicts the chances of the patient having heart disease, kidney disease, liver disease, cancer, and diabetes. 
+            - [Poster](https://ieeexplore.ieee.org/document/9989049)
+            """)
+
+        with col6:
+            st.subheader("📚 Theses")
+            st.markdown("""
+            - **B.Sc. Thesis**  
+              *Tansformer Based Graph Convolutional Networks for Skeleton-Based Action Recognition.*  
+              - Advisor: Prof. He Gang 
+              - SWUST Library, 2023  
+              [View Abstract](your-link-here)
+            """)
+
+if selected == "Contact":
+    with st.container():
+        st.header("📬 Let's Connect!", divider="rainbow")
+        
+        # Contact cards with icons
+        cols = st.columns(3)
+        with cols[0]:
+            st.markdown("""
+            ### 📧 Email
+            **Professional:**  
+            [arefin.swust@gmail.com](mailto:arefin.swust@gmail.com)  
+            
+            **Academic:**  
+            [arefin@stu.hit.edu.cn](mailto:arefin@stu.hit.edu.cn)
+            """)
+            
+        with cols[1]:
+            st.markdown("""
+            ### 🔗 Professional
+            [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](http://www.linkedin.com/in/nazmul-arefin)
+            
+            [![Google Scholar](https://img.shields.io/badge/Google_Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](your-google-scholar-url)
+            """)
+            
+        with cols[2]:
+            st.markdown("""
+            ### 💻 Coding
+            [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nazmul-Arefin)
+            
+            [![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](your-kaggle-url)
+            """)
+        
+        # Interactive map
+        st.subheader("📍 Find Me")
+        with st.expander("Open Map"):
+            st.markdown("""
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.689487092637!2d113.9663683153551!3d22.58123494832035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f8d5a5d5d5d5%3A0x5e6a01a1bcbe7f47!2sHarbin%20Institute%20of%20Technology%2C%20Shenzhen!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+            width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen loading="lazy"></iframe>
             """, unsafe_allow_html=True)
-            
-            submitted = st.form_submit_button("Send Message")
-            
-            if submitted:
-                # Process form data (example using FormSubmit.co)
-                form_data = {
-                    "name": name,
-                    "email": email,
-                    "message": message
-                }
-                
-                try:
-                    response = requests.post(
-                        "https://formsubmit.co/ajax/arefin.swust@gmail.com", 
-                        json=form_data
-                    )
-                    st.success("Message sent successfully!")
-                    st.balloons()
-                except Exception as e:
-                    st.error(f"Error: {e}")
-
-    with right_col:
-        st_lottie(lottie_contact, height=500)
-
-    st.write("---")
-    st.markdown("""
-    <p style='text-align: center;'>
-        @ 2025 Personal Portfolio | 📧 arefin.swust@gmail.com | 🏠 Shenzhen, Guangdong, China
-    </p>
-    """, unsafe_allow_html=True)
+        
+        
+        # Social media carousel
+        st.subheader("🌍 Social Media")
+        platforms = {
+            "Facebook": "https://twitter.com/yourhandle",
+            "Instagram": "https://instagram.com/yourhandle",
+            #"WeChat": "wechat-qr-code.jpg"
+        }
+        
+        selected_platform = st.selectbox("Choose platform:", list(platforms.keys()))
+        if "WeChat" in selected_platform:
+            st.image(platforms[selected_platform], width=150)
+        else:
+            st.markdown(f"[Open {selected_platform}]({platforms[selected_platform]})")
