@@ -4,7 +4,7 @@ import requests
 from streamlit_lottie import st_lottie
 from PIL import Image
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="Arefin's Protfolio", page_icon="🗂️", layout="wide")
 
 #this for the animation load
 def load_lottieurl(url):
