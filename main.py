@@ -17,11 +17,11 @@ def load_lottieurl(url):
 lottie_coder = load_lottieurl("https://lottie.host/c42e7bb5-cd2a-4ccb-8142-83c1e0196cb4/ygGJHLVAl0.json")
 lottie_contact = load_lottieurl("https://lottie.host/ad701a82-571f-45fd-8a50-572ad2ed2a41/FbERxWJDOM.json")
 
-image1 = Image.open("image\project1.png")
-image2 = Image.open("image\project2.png")
-image3 = Image.open("image\project3.png")
-image4 = Image.open("image\project4.png")
-image5 = Image.open("image\project5.png")
+image1 = Image.open("image/project1.png")
+image2 = Image.open("image/project2.png")
+image3 = Image.open("image/project3.png")
+image4 = Image.open("image/project4.png")
+image5 = Image.open("image/project5.png")
 #image6 = Image.open("iamge\project6.jpg")
 
 # Intro page
